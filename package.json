@@ -1,0 +1,17 @@
+{
+  "name": "vados_bot",
+  "version": "1.0.0",
+  "description": "Telegram-bot to see vados schedule",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleksandr Khotemskyi <xotabu4@gmail.com> (https://github.com/Xotabu4)",
+  "license": "MIT",
+
+  "dependencies": {
+    "node-telegram-bot-api": "^0.27.0",
+    "flat-file-db": "^1.0.0"
+  }
+}
