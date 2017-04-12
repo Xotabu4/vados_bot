@@ -11,51 +11,92 @@ const BOT_NAME = '@VadosScheduleBot'
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 
-//Just logging
-// bot.onText(/\.*/, (msg, match) => {
-//   const chatId = msg.chat.id;
-//   const resp = match[1]; // the captured "whatever"
-//   console.log('#### NEW MESSAGE #####')
-//   console.log(msg)
-// });
-
-// bot.on('sticker', (msg)=> {
-//     const chatId = msg.chat.id;
-//     console.log('#### got sticker', msg)
-// })
-
-// bot.onText(/\вадос.*выходной|выходной.*вадос/gi, (msg, match) => {
-//   const chatId = msg.chat.id;
-
-//   let free_time = DB.get_all_free_times().time
-//   console.log('###FREE_TIME ', free_time)
-//   bot.sendMessage(chatId, `У вадоса выходные ${free_time}`);
-// });
-
 bot.onText(/\вадос.*работает|работает.*вадос/gi, (msg, match) => {
-    let work_time = DB.get_all_work_times()
-    bot.sendMessage(msg.chat.id, `У вадоса работа ${work_time}`);
+    console.log('########## MESSAGE RECIEVED!')
+    let work_date = DB.get_work_date()
+    if (work_date == 'NO_DATE') {
+        bot.sendMessage(msg.chat.id, `Я не знаю когда у вадоса выходной. Добавь последний день работы через /workdate dd-mm-yyyy`);
+        return
+    }
+
+    const last_working_day = parseStringToMoment(work_date)
+    let leisure_schedule = prepareLeisureSchedule(last_working_day)
+    let schedule_as_string = leisure_schedule.join(`- `)
+
+    let message = ''    
+    for (let date of leisure_schedule) {
+        message = message + `*${date}*\n\r`
+    }
+    bot.sendMessage(msg.chat.id, `Вадос выходной: `);
+    bot.sendMessage(msg.chat.id, message, {parse_mode: 'Markdown'});
     //bot.sendSticker(msg.chat.id, 'CAADAgADjgAD9-dEB5kxDsTvifG3Ag')
 });
 
-bot.onText(/\@VadosScheduleBot работает (.*)/, (msg, match) => {
+bot.onText(/\/clear/, (msg, match) => {
+    console.info('Got clear command:', msg)
+    DB.clear().then(() => {
+        bot.sendMessage(msg.chat.id, `Все почищено!`)
+    })
+})
+
+bot.onText(/\/workdate (.*)|\/workdate/, (msg, match) => {
     console.log('## пишем в базу: ', match[1])
-    DB.set_work_time(match[1])
-    console.log(msg.chat.id, `Записал, вадос работает ${match[1]}`)
-    bot.sendMessage(msg.chat.id, `Записал, вадос работает ${match[1]}`);
+    if (match[1] && moment(parseStringToMoment(match[1])).isValid()) {
+        DB.set_work_date(match[1])
+        bot.sendMessage(msg.chat.id, `Записал, ${match[1]}`);
+    } else {
+        bot.sendMessage(msg.chat.id, `Ты втираешь мне дичь ${match[1]} должно быть в формате dd-mm-yyyy`);
+    }
 })
 
-bot.onText(/\@VadosScheduleBot не работает (.*)/, (msg, match) => {
-    let cb = () => {
-        console.log(msg.chat.id, `Записал, вадос не работает ${match[1]}`)
-        bot.sendMessage(msg.chat.id, `Записал, вадос не работает ${match[1]}`);
-    }
-    DB.del_work_time(match[1])
-})
+//////// WORKING WITH TIME!
 
-bot.onText(/\@VadosScheduleBot забудь все/, (msg, match) => {
-    let reply = () => {
-        bot.sendMessage(msg.chat.id, `Все почистил, база пустая`)
+let moment = require('moment');
+require('moment-recur'); //https://github.com/c-trimm/moment-recur
+moment.locale('ru');
+
+
+//msg_time = '01-04-2017'
+
+
+//dd-mm-yyyy or dd-mm
+function parseStringToMoment(msg_time) {
+    let [day, month, year] = msg_time.split('-')
+    if (!year) {
+        // entered without year
+        year = moment().year()
     }
-    DB.clear(reply)
-})
+    return moment(`${year}-${month}-${day}`)
+}
+
+function prepareLeisureSchedule(last_working_day) {
+    const first_leisure_day = last_working_day.clone().add(1, 'days')
+    const second_leisure_day = first_leisure_day.clone().add(1, 'days')
+
+    // I don't give a fuck about copy/paste
+    const leisure_recurrence_1 = first_leisure_day.recur({
+        end: first_leisure_day.clone().add(30, 'days')
+    }).every(5).days().all("L")
+
+    const leisure_recurrence_2 = second_leisure_day.recur({
+        end: second_leisure_day.clone().add(30, 'days')
+    }).every(5).days().all("L")
+
+    let schedule = []
+
+    // Still dont give a fuck
+    for (let i = 0; i < leisure_recurrence_1.length; i++) {
+
+        schedule.push(leisure_recurrence_1[i])
+        schedule.push(leisure_recurrence_2[i])
+
+    }
+    let formated_schedule = []
+    for (let date of schedule) {
+        // For some reason recurence lib replaces - with . and changes year position.
+        let fixed_dots = parseStringToMoment(date.replace(/\./g, '-'))
+        formated_schedule.push(fixed_dots.format("dddd, D MMMM"))
+    }
+
+    return formated_schedule
+}

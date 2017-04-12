@@ -1,36 +1,24 @@
 var flatfile = require('flat-file-db');
 
 
-// db.on('open', function() {
-//     db.put('hello', {world:1});  // store some data 
-//     console.log(db.get('hello')) // prints {world:1} 
-
-//     db.put('hey', {world:2}, function() {
-//         // 'hey' is now fully persisted 
-//     });
-// });
-
 class DataBase {
     constructor() {
         this.db = flatfile.sync('./database.db');
     }
 
-    set_work_time(work_time) {
-        this.db.put(work_time, {})
+    set_work_date(work_date) {
+        this.db.put('last_work_date', {date: work_date})
     }
 
-    get_all_work_times() {
-        return this.db.keys()
+    get_work_date() {
+        let dbEntry = this.db.get('last_work_date')
+        return !dbEntry ? 'NO_DATE' : dbEntry.date
     }
 
-    del_work_time(work_time, cb) {
-        if (this.db.has(work_time)) {
-            this.db.del(work_time, cb)
-        }
-    }
-
-    clear(cb) {
-        this.db.clear(cb)
+    clear() {
+        return new Promise((resolve, reject) => {
+            this.db.clear(resolve)
+        });
     }
 }
 
