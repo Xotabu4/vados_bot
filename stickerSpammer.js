@@ -25,7 +25,13 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADmAAD9-dEB005FL8EYVoaAg', // няша
             'CAADAgADjgAD9-dEB5kxDsTvifG3Ag', // сила
             'CAADAgADkAAD9-dEByRUhToHC_18Ag', // гоп 2
-            'CAADAgADlAAD9-dEBwmWkQc7m7c8Ag' // вознесение
+            'CAADAgADlAAD9-dEBwmWkQc7m7c8Ag', // вознесение
+            'CAADAgADKQEAAvfnRAeDU-i0bes4PQI', // Телек ломать
+            'CAADAgADMgEAAvfnRAem5ZyodCtQ7QI', // Без зубов
+            'CAADAgADNgEAAvfnRAfW4650gCpFOwI', // На деньги
+            'CAADAgADOQEAAvfnRAc75aERVjGfIwI', // Прицесса 
+            'CAADAgADQwEAAvfnRAc6aLsq2576sgI', // Вадосо бомж
+            'CAADAgADRgEAAvfnRAdJCQABiAktIj0C' // Ракета
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -37,6 +43,9 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADPgAD9-dEB9ZuOkj4duyBAg', // черт
             'CAADAgADeQAD9-dEB1SBzKwkNOonAg', // чмоки
             'CAADAgADewAD9-dEB99LYOVA7P1PAg', // плохая погода
+            'CAADAgADLQEAAvfnRAeHa1DcyRFFigI', // Порошок
+            'CAADAgADNwEAAvfnRAcJAoJgZEv2PwI', // Барбер
+            'CAADAgADRAEAAvfnRAd4yXhsrDwPAwI' // Язык
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -47,6 +56,12 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADYwAD9-dEB6ag9sNqHblsAg', // доказательства от зеленого
             'CAADAgADZQAD9-dEB3XU6mA3LCf2Ag', // панкота
             'CAADAgADGgEAAvfnRAcr2M9FbRnb3wI', // явраю
+            'CAADAgADLwEAAvfnRAf2t4qb0qw2TQI', // Блюрохот
+            'CAADAgADMAEAAvfnRAcTE58Hnyxz6wI', // Цилиндр
+            'CAADAgADMwEAAvfnRAeh3cTNbwnw_QI', // Школяр
+            'CAADAgADOwEAAvfnRAelkqjzgL_2_wI', // Носочлен
+            'CAADAgADQAEAAvfnRAenX1VbqkYnCwI', // Хакир
+            'CAADAgADQgEAAvfnRAduKeTxuqj1hQI' // Скривился
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -60,6 +75,8 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADZwAD9-dEB8fm-zJm_0EbAg', // ОООО
             'CAADAgADaQAD9-dEB_YJsckeeORpAg', // лукавая
             'CAADAgADawAD9-dEB3MBw5R2rWd2Ag', // ого!
+            'CAADAgADNQEAAvfnRAdjWQcXnoxqcAI', // Коварность
+            'CAADAgADQQEAAvfnRAeFc-WhnCbivgI' // Недовольная
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -69,7 +86,8 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADLwAD9-dEB3myk_JRkBEWAg', // цп
             'CAADAgADXQAD9-dEB7VURHOB46UQAg', // гуц гуц
             'CAADAgADXwAD9-dEB96YQlytllOCAg', // пацанчик!
-            'CAADAgADYQAD9-dEB9aBL1psNWhHAg' // свин
+            'CAADAgADYQAD9-dEB9aBL1psNWhHAg', // свин
+            'CAADAgADLAEAAvfnRAeQay7FxQbNQQI' // дай обниму
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -79,7 +97,10 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADcQAD9-dEB1h0NfI-pblTAg', // граф
             'CAADAgADcwAD9-dEB_a2OqPqHLlQAg', // витрищився
             'CAADAgADdQAD9-dEB8nqPgXXXIwpAg', // мерзость но люблю
-            'CAADAgADdwAD9-dEBx9w5BfseTGlAg' // булка
+            'CAADAgADdwAD9-dEBx9w5BfseTGlAg', // булка
+            'CAADAgADKwEAAvfnRAcPNJI1zzFgIgI', // Сердце <3
+            'CAADAgADOAEAAvfnRAfmncv--Rl8YQI', // Gonna get raped
+            'CAADAgADRwEAAvfnRAdh1lLnYMHYxAI' // Матрица
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -89,7 +110,9 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADIwAD9-dEB4Kl3hSzlEFYAg', // стильный на фоне
             'CAADAgADJQAD9-dEB0UzcU6kcAUHAg', // прыгает в трусах
             'CAADAgADJwAD9-dEB7vnZ62Va4AvAg', // нежность с бабочкой
-            'CAADAgADhQAD9-dEB0SjlKUux4VzAg' // нар и камень
+            'CAADAgADhQAD9-dEB0SjlKUux4VzAg', // нар и камень
+            'CAADAgADJgEAAvfnRAfH8e_RyJDbEwI', // маленький х
+            'CAADAgADJwEAAvfnRAefNWcUppXxeQI' // большой х
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -97,6 +120,8 @@ module.exports.addStickerSpammer = function (bot) {
     bot.onText(/маша|мавлик/gi, (msg, match) => {
         let stickers = [
             'CAADAgADbQAD9-dEBwpDhr5r2cXzAg', // лыба
+            'CAADAgADKAEAAvfnRAddmVZJ5gt8TQI', // лежит
+            'CAADAgADRQEAAvfnRAdjLNBR0rKCJAI' // Личинка
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -105,7 +130,18 @@ module.exports.addStickerSpammer = function (bot) {
         let stickers = [
             'CAADAgADKwAD9-dEB8J7pgNdilGKAg', // модник с цыпой
             'CAADAgADOAAD9-dEB8Ft8_xZoz02Ag', // олдовый 2007
-            'CAADAgADWAAD9-dEB70TYCv7rDvLAg' // бухарь с пивом
+            'CAADAgADWAAD9-dEB70TYCv7rDvLAg', // бухарь с пивом
+            'CAADAgADKgEAAvfnRAediVcKtVG4HgI', // Гегеге в прыжке
+            'CAADAgADLgEAAvfnRAfB6q_sDf4fEAI', // Ангел-принц
+            'CAADAgADMQEAAvfnRAeSzTbW7_uflQI' // Хач-араб
+        ]
+        bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
+    })
+
+    bot.onText(/марина|палундра|полундра/gi, (msg, match) => {
+        let stickers = [
+            'CAADAgADOgAD9-dEB3IZ-itF-clsAg', // Черная
+            'CAADAgADPAAD9-dEBxJm6eIMK-l5Ag', // Винище
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
