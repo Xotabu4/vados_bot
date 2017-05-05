@@ -60,23 +60,25 @@ module.exports.addScheduleSpammer = function (bot) {
 
     // Хук на запрос расписания
     bot.onText(/\вадос.*работает|работает.*вадос/gi, (msg, match) => {
-        let work_date = DB.get_work_date()
-        if (work_date == 'NO_DATE') {
-            bot.sendMessage(msg.chat.id, `Я не знаю когда у вадоса выходной. Добавь последний день работы через /workdate dd-mm-yyyy`);
-            return
-        }
+        let work_date = DB.get_work_date().then(work_date => {
+            if (work_date == 'NO_DATE') {
+                bot.sendMessage(msg.chat.id, `Я не знаю когда у вадоса выходной. Добавь последний день работы через /workdate dd-mm-yyyy`);
+                return
+            }
+            
+            //Если в базе дата есть - можем считать расписание
+            const last_working_day = parseStringToMoment(work_date)
+            let leisure_schedule = prepareLeisureSchedule(last_working_day)
+            let schedule_as_string = leisure_schedule.join(`- `)
 
-        //Если в базе дата есть - можем считать расписание
-        const last_working_day = parseStringToMoment(work_date)
-        let leisure_schedule = prepareLeisureSchedule(last_working_day)
-        let schedule_as_string = leisure_schedule.join(`- `)
+            let message = ''
+            for (let date of leisure_schedule) {
+                message = message + `*${date}*\n\r`
+            }
+            bot.sendMessage(msg.chat.id, `Вадос выходной: `);
+            bot.sendMessage(msg.chat.id, message, { parse_mode: 'Markdown' });
+        })
 
-        let message = ''
-        for (let date of leisure_schedule) {
-            message = message + `*${date}*\n\r`
-        }
-        bot.sendMessage(msg.chat.id, `Вадос выходной: `);
-        bot.sendMessage(msg.chat.id, message, { parse_mode: 'Markdown' });
     });
 
     // Хук на вайп базы
