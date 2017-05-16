@@ -7,7 +7,7 @@ const BOT_NAME = '@VadosScheduleBot'
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(TELEGRAM_TOKEN, {
     polling: true,
-    onlyFirstMatch: true
+    //onlyFirstMatch: true
 });
 
 // https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md
@@ -16,4 +16,5 @@ const bot = new TelegramBot(TELEGRAM_TOKEN, {
 
 require('./scheduleSpammer.js').addScheduleSpammer(bot)
 require('./stickerSpammer.js').addStickerSpammer(bot)
+require('./BTCSpammer.js').addBTCExchangeRateSpammer(bot)
 
