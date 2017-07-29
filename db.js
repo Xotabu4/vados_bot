@@ -9,13 +9,6 @@ const config = {
     messagingSenderId: "465882212183"
 }
 
-
-// var test = firebase.database().ref('test/');
-
-// test.set({ hello: "World3" }).then(undefined, (err) => {
-//     console.log(err)
-// })
-
 class DataBase {
     constructor() {
         firebase.initializeApp(config);
@@ -42,7 +35,6 @@ class DataBase {
     }
 }
 
-
-
+// singleton
 let database = new DataBase()
 module.exports.DB = database
