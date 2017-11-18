@@ -4,7 +4,7 @@
   "description": "Telegram-bot to see vados schedule",
   "main": "index.js",
   "scripts": {
-    "start": "forever -a -l >(logger -t myapp) start index.js",
+    "start": "forever -l log.log -o log.log -e log.log index.js",
     "simplestart": "node index.js",
     "stop": "forever stopall",
     "deploy": "git push heroku master"

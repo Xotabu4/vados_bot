@@ -1,3 +1,5 @@
 node_modules
 credentials.json
 .vscode
+# excluding shitty logs
+log.log
