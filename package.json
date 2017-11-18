@@ -4,8 +4,8 @@
   "description": "Telegram-bot to see vados schedule",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "foreverstart": "forever start index.js",
+    "start": "forever start index.js",
+    "simplestart": "node index.js",
     "foreverstop": "forever stopall",
     "deploy": "git push heroku master"
   },
