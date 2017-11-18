@@ -25,7 +25,7 @@ bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
 const http = require('http')
 const requestHandler = (request, response) => {
   console.log(request.url)
-  response.end('Hello Node.js Server!')
+  response.end('Hello world! This is backend server for telegram bot: @VadosScheduleBot')
 }
 const server = http.createServer(requestHandler)
 
