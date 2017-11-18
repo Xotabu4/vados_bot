@@ -20,3 +20,18 @@ require('./cryptoSpammer.js').addCryptoCurrencySpammer(bot)
 
 // Sending message to myself
 bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
+
+
+const http = require('http')
+const requestHandler = (request, response) => {
+  console.log(request.url)
+  response.end('Hello Node.js Server!')
+}
+const server = http.createServer(requestHandler)
+
+server.listen(process.env.PORT || 5000), (err) => {
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+  console.log(`server is listening on ${port}`)
+})
