@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 
-const TELEGRAM_TOKEN = require('./credentials.json').TELEGRAM_TOKEN
+const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN
 
 const BOT_NAME = '@VadosScheduleBot'
 

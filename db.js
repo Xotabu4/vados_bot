@@ -1,5 +1,9 @@
 let firebase = require('firebase')
-const firebaseuser = require('./credentials.json').FIREBASE
+const firebaseuser = {
+    LOGIN: process.env.FIREBASE_LOGIN,
+    PASSWORD: process.env.FIREBASE_PASSWORD
+}
+
 const config = {
     apiKey: "AIzaSyCrB651un0PpVPfbdA7U204pQrsQhfkBoI",
     authDomain: "roboebantyai.firebaseapp.com",
