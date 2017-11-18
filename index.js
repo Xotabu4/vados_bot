@@ -29,9 +29,9 @@ const requestHandler = (request, response) => {
 }
 const server = http.createServer(requestHandler)
 
-server.listen(process.env.PORT || 5000), (err) => {
+server.listen(process.env.PORT || 5000, (err) => {
   if (err) {
     return console.log('something bad happened', err)
   }
-  console.log(`server is listening on ${port}`)
+  console.log(`server is listening on ${process.env.PORT || 5000}`)
 })
