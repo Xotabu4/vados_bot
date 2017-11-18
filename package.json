@@ -4,8 +4,10 @@
   "description": "Telegram-bot to see vados schedule",
   "main": "index.js",
   "scripts": {
-    "start": "forever start index.js",
-    "stop": "forever stopall"
+    "start": "node index.js",
+    "foreverstart": "forever start index.js",
+    "foreverstop": "forever stopall",
+    "deploy": "git push heroku master"
   },
   "author": "Oleksandr Khotemskyi <xotabu4@gmail.com> (https://github.com/Xotabu4)",
   "license": "MIT",

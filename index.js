@@ -17,3 +17,5 @@ const bot = new TelegramBot(TELEGRAM_TOKEN, {
 require('./scheduleSpammer.js').addScheduleSpammer(bot)
 require('./stickerSpammer.js').addStickerSpammer(bot)
 require('./cryptoSpammer.js').addCryptoCurrencySpammer(bot)
+
+bot.sendMessage(121956343, 'I AM STARTED!')
