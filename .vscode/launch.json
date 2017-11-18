@@ -7,17 +7,18 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceRoot}/index.js",
-            "outFiles": []
-        },
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Attach to Process",
-            "address": "localhost",
-            "port": 5858,
-            "outFiles": []
+            "name": "Launch via NPM",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "start"
+            ],
+            "port": 9229,
+            "env": {
+                "TELEGRAM_TOKEN": "368081887:AAHtgCxRjPrjVgeuHIqHd8zAOBfdsJT01lI",
+                "FIREBASE_LOGIN": "xotabu4@gmail.com",
+                "FIREBASE_PASSWORD": "HWgsi123!"
+            }
         }
     ]
 }

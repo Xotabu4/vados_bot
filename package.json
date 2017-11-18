@@ -6,7 +6,7 @@
   "scripts": {
     "start": "forever start index.js",
     "simplestart": "node index.js",
-    "foreverstop": "forever stopall",
+    "stop": "forever stopall",
     "deploy": "git push heroku master"
   },
   "author": "Oleksandr Khotemskyi <xotabu4@gmail.com> (https://github.com/Xotabu4)",
