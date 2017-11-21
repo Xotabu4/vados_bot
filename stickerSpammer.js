@@ -31,7 +31,8 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADNgEAAvfnRAfW4650gCpFOwI', // На деньги
             'CAADAgADOQEAAvfnRAc75aERVjGfIwI', // Прицесса 
             'CAADAgADQwEAAvfnRAc6aLsq2576sgI', // Вадосо бомж
-            'CAADAgADRgEAAvfnRAdJCQABiAktIj0C' // Ракета
+            'CAADAgADRgEAAvfnRAdJCQABiAktIj0C', // Ракета
+            'CAADAgADLQEAAvfnRAeHa1DcyRFFigI', // Порошок
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
@@ -43,7 +44,6 @@ module.exports.addStickerSpammer = function (bot) {
             'CAADAgADPgAD9-dEB9ZuOkj4duyBAg', // черт
             'CAADAgADeQAD9-dEB1SBzKwkNOonAg', // чмоки
             'CAADAgADewAD9-dEB99LYOVA7P1PAg', // плохая погода
-            'CAADAgADLQEAAvfnRAeHa1DcyRFFigI', // Порошок
             'CAADAgADNwEAAvfnRAcJAoJgZEv2PwI', // Барбер
             'CAADAgADRAEAAvfnRAd4yXhsrDwPAwI' // Язык
         ]
