@@ -15,7 +15,7 @@ module.exports.addCryptoCurrencySpammer = function (bot) {
             .then(response => {
                 json = JSON.parse(response)
                 if (json.error) {
-                    throw Error(`${jsone.error}`)
+                    throw Error(`${json.error}`)
                 }
                 return `CEX.IO rates:\r\n${from}/${to} - ${json.lprice}`;
             })
@@ -32,6 +32,9 @@ module.exports.addCryptoCurrencySpammer = function (bot) {
     })
 
     bot.onText(/\/rates (.+) (.+)/, async (msg, match) => {
+        if (!match[1] && !match[2]) {
+            return
+        }
         try {
             const formattedRates = await requestExchangeRate(match[1], match[2])
             bot.sendMessage(msg.chat.id, formattedRates)
