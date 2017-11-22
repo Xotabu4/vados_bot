@@ -1,37 +1,32 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN
-
 const BOT_NAME = '@VadosScheduleBot'
 
-// Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(TELEGRAM_TOKEN, {
-    polling: true,
-    //onlyFirstMatch: true
-});
+const options = {
+    webHook: {
+        // Port to which you should bind is assigned to $PORT variable
+        // See: https://devcenter.heroku.com/articles/dynos#local-environment-variables
+        port: process.env.PORT
+        // you do NOT need to set up certificates since Heroku provides
+        // the SSL certs already (https://<app-name>.herokuapp.com)
+        // Also no need to pass IP because on Heroku you need to bind to 0.0.0.0
+    }
+};
+// Heroku routes from port :443 to $PORT
+// Add URL of your app to env variable or enable Dyno Metadata
+// to get this automatically
+// See: https://devcenter.heroku.com/articles/dyno-metadata
+const url = process.env.APP_URL || 'https://vados-bot.herokuapp.com:443';
+const bot = new TelegramBot(TELEGRAM_TOKEN, options);
 
-// https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md
-// https://github.com/yagop/node-telegram-bot-api/blob/release/doc/usage.md#events
+// This informs the Telegram servers of the new webhook.
+// Note: we do not need to pass in the cert, as it already provided
+bot.setWebHook(`${url}/bot${TELEGRAM_TOKEN}`);
 
-
-require('./scheduleSpammer.js').addScheduleSpammer(bot)
+//require('./scheduleSpammer.js').addScheduleSpammer(bot)
 require('./stickerSpammer.js').addStickerSpammer(bot)
 require('./cryptoSpammer.js').addCryptoCurrencySpammer(bot)
 
-// Sending message to myself
+// Sending message to myself on start
 bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
-
-
-const http = require('http')
-const requestHandler = (request, response) => {
-  console.log(request.url)
-  response.end('Hello world! This is backend server for telegram bot: @VadosScheduleBot')
-}
-const server = http.createServer(requestHandler)
-
-server.listen(process.env.PORT || 5000, (err) => {
-  if (err) {
-    return console.log('something bad happened', err)
-  }
-  console.log(`server is listening on ${process.env.PORT || 5000}`)
-})
