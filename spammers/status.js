@@ -24,7 +24,7 @@ TELEGRAM_STATUS:
     LAST_ERROR_TIME: ${webHookInfo.last_error_date}
     LAST_ERROR_MESSAGE: ${webHookInfo.last_error_message}
 `
-            bot.sendMessage(msg.chat.id, JSON.stringify(status, undefined, 2))
+            bot.sendMessage(msg.chat.id, status)
         })
     })
 }
