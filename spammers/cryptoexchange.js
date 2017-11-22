@@ -21,18 +21,23 @@ module.exports.addCryptoCurrencySpammer = function (bot) {
             })
     }
 
-    bot.onText(/\/rates (.+) (.+)/, async (msg, match) => {
-        const formattedRates
+
+    bot.onText(/\/rates/, async (msg, match) => {
         try {
-            if (match[1] && match[2]) {
-                formattedRates = await requestExchangeRate(match[1], match[2])
-            } else {
-                formattedRates = await requestExchangeRate('BTC', 'USD')
-            }
+            const formattedRates = await requestExchangeRate('BTC', 'USD')
+            bot.sendMessage(msg.chat.id, formattedRates)
         } catch (err) {
             bot.sendMessage(msg.chat.id, `Что-то упало, вот ошибка - ${err}`)
         }
-        bot.sendMessage(msg.chat.id, formattedRates)
+    })
+
+    bot.onText(/\/rates (.+) (.+)/, async (msg, match) => {
+        try {
+            const formattedRates = await requestExchangeRate(match[1], match[2])
+            bot.sendMessage(msg.chat.id, formattedRates)
+        } catch (err) {
+            bot.sendMessage(msg.chat.id, `Что-то упало, вот ошибка - ${err}`)
+        }
     })
 }
 
