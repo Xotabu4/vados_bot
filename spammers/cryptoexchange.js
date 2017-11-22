@@ -11,28 +11,28 @@ const request = require('request-promise');
 //   }); 
 module.exports.addCryptoCurrencySpammer = function (bot) {
     function requestExchangeRate(from, to) {
-        request(`https://cex.io/api/last_price/${from}/${to}`)
+        return request(`https://cex.io/api/last_price/${from}/${to}`)
             .then(response => {
                 json = JSON.parse(response)
                 if (json.error) {
                     throw Error(`${jsone.error}`)
                 }
-                const price = json.lprice
-                let formattedRates = `CEX.IO rates:\r\n${from}/${to} - ${price}`;
-                bot.sendMessage(msg.chat.id, formattedRates)
-            })
-            .catch(function (err) {
-                console.error(err)
-                bot.sendMessage(msg.chat.id, `Что-то упало, вот ошибка - ${err}`)
+                return `CEX.IO rates:\r\n${from}/${to} - ${json.lprice}`;
             })
     }
 
-    bot.onText(/\/rates (.+) (.+)/, (msg, match) => {
-        if (match[1] && match[2]) {
-            requestExchangeRate(match[1], match[2])
-        } else {
-            requestExchangeRate('BTC', 'USD')
+    bot.onText(/\/rates (.+) (.+)/, async (msg, match) => {
+        const formattedRates
+        try {
+            if (match[1] && match[2]) {
+                formattedRates = await requestExchangeRate(match[1], match[2])
+            } else {
+                formattedRates = await requestExchangeRate('BTC', 'USD')
+            }
+        } catch (err) {
+            bot.sendMessage(msg.chat.id, `Что-то упало, вот ошибка - ${err}`)
         }
+        bot.sendMessage(msg.chat.id, formattedRates)
     })
 }
 
