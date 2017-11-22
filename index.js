@@ -24,9 +24,10 @@ const bot = new TelegramBot(TELEGRAM_TOKEN, options);
 // Note: we do not need to pass in the cert, as it already provided
 bot.setWebHook(`${url}/bot${TELEGRAM_TOKEN}`);
 
-//require('./scheduleSpammer.js').addScheduleSpammer(bot)
-require('./stickerSpammer.js').addStickerSpammer(bot)
-require('./cryptoSpammer.js').addCryptoCurrencySpammer(bot)
+//require('./spammers/schedule.js').addScheduleSpammer(bot)
+require('./spammers/stickers.js').addStickerSpammer(bot)
+require('./spammers/cryptoexchange.js').addCryptoCurrencySpammer(bot)
+require('./spammers/status.js').addStatusSpammer(bot)
 
 // Sending message to myself on start
 bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)

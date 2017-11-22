@@ -3,6 +3,7 @@
  *
  * Вызываешь эту функцию и передаешь параметром бота - хуки навешиваются - профит
  * 
+ * ВЫРУБЛЕН - никто его не юзает
  */
 module.exports.addScheduleSpammer = function (bot) {
     const DB = require('./db.js').DB

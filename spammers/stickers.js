@@ -105,7 +105,7 @@ module.exports.addStickerSpammer = function (bot) {
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
 
-    bot.onText(/вэл|веталь|виталик|кельбас|кила|килла|килбо|килбитс/gi, (msg, match) => {
+    bot.onText(/вэл|веталь|виталик|кельбас|кила|килла|килбо|килбитс|виталя/gi, (msg, match) => {
         let stickers = [
             'CAADAgADIwAD9-dEB4Kl3hSzlEFYAg', // стильный на фоне
             'CAADAgADJQAD9-dEB0UzcU6kcAUHAg', // прыгает в трусах
