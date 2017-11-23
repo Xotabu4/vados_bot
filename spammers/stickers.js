@@ -146,6 +146,20 @@ module.exports.addStickerSpammer = function (bot) {
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
 
+    bot.onText(/джунь|іра/gi, (msg, match) => {
+        let stickers = [
+            'CAADAgAD2AADuHTtDlQosrqUcxUtAg', // matrix очки
+            'CAADAgAD1wADuHTtDsAX9D-9NYJ9Ag', // челюсти
+            'CAADAgAD2QADuHTtDnDlRd0xhj2AAg', // пырится
+            'CAADAgAD2gADuHTtDpU_yesGBVSbAg', // сига недовольная
+            'CAADAgAD2wADuHTtDuN_OeUAAuYgAg', // недовольная без сиги
+            'CAADAgAD3AADuHTtDoR0bsS2dugMAg', // такие дела без сиги
+            'CAADAgAD5wADuHTtDqi1oJCZoxUSAg', // такие дела сига
+            'CAADAgAD6AADuHTtDuC-UgABuv4mFwI', // ярость!
+        ]
+        bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
+    })
+
     bot.onText(/ты не шаришь|ты просто не шаришь/gi, (msg, match) => {
         bot.sendSticker(msg.chat.id, 'CAADAgADHQAD9-dEB9F-3yZbZGLEAg')
     })
