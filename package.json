@@ -12,14 +12,15 @@
   "author": "Oleksandr Khotemskyi <xotabu4@gmail.com> (https://github.com/Xotabu4)",
   "license": "MIT",
   "dependencies": {
-    "@types/node-telegram-bot-api": "^0.28.2",
     "@types/firebase": "^2.4.32",
     "@types/moment": "^2.13.0",
+    "@types/node-telegram-bot-api": "^0.28.2",
     "@types/request-promise-native": "^1.0.10",
-    "forever": "0.15.3",
     "firebase": "~3.9.0",
+    "forever": "0.15.3",
     "moment": "^2.18.1",
     "moment-recur": "^1.0.5",
+    "moment-timezone": "^0.5.14",
     "node-telegram-bot-api": "^0.27.0",
     "request-promise-native": "^1.0.4"
   }
