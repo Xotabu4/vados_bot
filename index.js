@@ -28,7 +28,7 @@ bot.setWebHook(`${url}/bot${TELEGRAM_TOKEN}`);
 require('./spammers/stickers.js').addStickerSpammer(bot)
 require('./spammers/cryptoexchange.js').addCryptoCurrencySpammer(bot)
 require('./spammers/status.js').addStatusSpammer(bot)
-require('./spammers/balitime.js').addBaliTimeSpammer(bot)
+require('./spammers/timezone.js').addTimezoneSpammer(bot)
 
 // Sending message to myself on start
 bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
