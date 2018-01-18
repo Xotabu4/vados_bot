@@ -3,6 +3,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN
 const BOT_NAME = '@VadosScheduleBot'
 
+// polling: true,
 const options = {
     webHook: {
         // Port to which you should bind is assigned to $PORT variable
@@ -30,5 +31,8 @@ require('./spammers/cryptoexchange.js').addCryptoCurrencySpammer(bot)
 require('./spammers/status.js').addStatusSpammer(bot)
 require('./spammers/timezone.js').addTimezoneSpammer(bot)
 
-// Sending message to myself on start
-bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
+// Under construction. Consider using - https://firebase.google.com/docs/storage/web/upload-files
+//require('./spammers/photoSaver.js').addPhotoSaverSpammer(bot)
+
+// Sending message to myself on start, disabled - to much spam
+// bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
