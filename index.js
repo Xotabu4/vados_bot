@@ -31,6 +31,9 @@ require('./spammers/cryptoexchange.js').addCryptoCurrencySpammer(bot)
 require('./spammers/status.js').addStatusSpammer(bot)
 require('./spammers/timezone.js').addTimezoneSpammer(bot)
 
+// Special kova birthday case
+require('./spammers/birthday.js').addBirthdaySpammer(bot)
+
 // Under construction. Consider using - https://firebase.google.com/docs/storage/web/upload-files
 //require('./spammers/photoSaver.js').addPhotoSaverSpammer(bot)
 
