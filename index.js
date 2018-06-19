@@ -38,4 +38,4 @@ require('./spammers/birthday.js').addBirthdaySpammer(bot)
 //require('./spammers/photoSaver.js').addPhotoSaverSpammer(bot)
 
 // Sending message to myself on start, disabled - to much spam
-// bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
+bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)

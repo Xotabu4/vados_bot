@@ -7,6 +7,13 @@ module.exports.addBirthdaySpammer = function (bot) {
                 bot.sendMessage(msg.chat.id, message)
             }, ms)
         }
+
+        let delayedSticker = (id, ms) => {
+            setTimeout(() => {
+                bot.sendSticker(msg.chat.id, id)
+            }, ms)
+        }
+
         delayedSay('ковелова', 1000)
         delayedSay('счастья здоровля', 2000)
         delayedSay('{{ВСТАВЬТЕ СООБЩЕНИЕ ЗДЕСЬ}}', 5000)
@@ -18,7 +25,7 @@ module.exports.addBirthdaySpammer = function (bot) {
             'CAADAgADNQEAAvfnRAdjWQcXnoxqcAI', // Коварность
             'CAADAgADQQEAAvfnRAeFc-WhnCbivgI' // Недовольная
         ]
-        stickers.forEach(sticker => delayedSay(sticker, 10000))
+        stickers.forEach(sticker => delayedSticker(sticker, 10000))
         delayedSay('ах, наша красоточка', 11000)
     })
 }
