@@ -12,13 +12,14 @@ module.exports.addBirthdaySpammer = function (bot) {
         delayedSay('Это ж сегодня', 2000)
         delayedSay('==================', 5000)
         delayedSay('ОГО поздравляю счастья здоровля', 6000)
-        [
+        let stickers = [
             'CAADAgADZwAD9-dEB8fm-zJm_0EbAg', // ОООО
             'CAADAgADaQAD9-dEB_YJsckeeORpAg', // лукавая
             'CAADAgADawAD9-dEB3MBw5R2rWd2Ag', // ого!
             'CAADAgADNQEAAvfnRAdjWQcXnoxqcAI', // Коварность
             'CAADAgADQQEAAvfnRAeFc-WhnCbivgI' // Недовольная
-        ].forEach(sticker => delayedSay(sticker, 10000))
+        ]
+        stickers.forEach(sticker => delayedSay(sticker, 10000))
         delayedSay('==================', 11000)
     })
 }
