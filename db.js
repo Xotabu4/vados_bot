@@ -17,7 +17,8 @@ class DataBase {
     constructor() {
         firebase.initializeApp(config);
         firebase.auth().signInWithEmailAndPassword(firebaseuser.LOGIN, firebaseuser.PASSWORD)
-        this.db = firebase.database()
+        this.db = firebase.database() // For JSONs
+        this.storage = firebase.storage() // For files (images)
     }
 
     set_work_date(work_date) {
@@ -36,6 +37,17 @@ class DataBase {
 
     clear() {
         this.db.ref('schedule/').set(undefined)
+    }
+
+    // BETA. Trying to upload atleast something.
+    uploadImage(imageBlob) {
+        const storageRef = this.storage.ref()
+        const trashRef = storageRef.child('/everything/');
+        return trashRef.child('OLOLFILENAME.jpg').put(imageBlob)
+            .then(snapshot => {
+                console.log('Uploaded a blob or file!');
+                return snapshot
+            });
     }
 }
 
