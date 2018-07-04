@@ -36,10 +36,13 @@ require('./spammers/status.js').addStatusSpammer(bot)
 // require('./spammers/timezone.js').addTimezoneSpammer(bot)
 
 // Special kova birthday case
-require('./spammers/birthday.js').addBirthdaySpammer(bot)
+//require('./spammers/birthday.js').addBirthdaySpammer(bot)
 
 // Under construction. Consider using - https://firebase.google.com/docs/storage/web/upload-files
-require('./spammers/photoSaver.js').addPhotoSaverSpammer(bot)
+//require('./spammers/photoSaver.js').addPhotoSaverSpammer(bot)
+
+// Just some basic text responses
+require('./spammers/podgaldykivalo.js').addPodgaldykivaloSpammer(bot)
 
 // Sending message to myself on start, disable if to much spam
 bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
