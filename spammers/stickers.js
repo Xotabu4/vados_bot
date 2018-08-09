@@ -163,7 +163,7 @@ module.exports.addStickerSpammer = function (bot) {
     bot.onText(/ты не шаришь|ты просто не шаришь/gi, (msg, match) => {
         bot.sendSticker(msg.chat.id, 'CAADAgADHQAD9-dEB9F-3yZbZGLEAg')
     })
-    bot.onText(/бухала подсчетики/gi, (msg, match) => {
+    bot.onText(/бухала подсчетики|бухала подсчётики/gi, (msg, match) => {
         bot.sendSticker(msg.chat.id, 'CAADAgADTAEAAvfnRAeDXxBWZI8TEgI')
     })
 
