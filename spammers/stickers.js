@@ -12,7 +12,6 @@ module.exports.addStickerSpammer = function (bot) {
     function getRandomStickerID(stickers) {
         return stickers[Math.floor(Math.random() * stickers.length)];
     }
-
     bot.onText(/вадос|вадим|влад|наштиркувач|пес|пэс/gi, (msg, match) => {
         let stickers = [
             'CAADAgADKQAD9-dEB9dt6-h8-LTwAg', // policeman
@@ -36,7 +35,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/бухал|бухель|вугель|бугель/gi, (msg, match) => {
         let stickers = [
             'CAADAgADNAAD9-dEBy10Egx2zvjKAg', // недовольный бухарь
@@ -49,7 +47,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     // матчим как слово и когда в конце ничего (конец строки)
     bot.onText(/хот\s|хот$|хотабыч/gi, (msg, match) => {
         let stickers = [
@@ -65,11 +62,9 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/явраю/gi, (msg, match) => {
         bot.sendSticker(msg.chat.id, 'CAADAgADGgEAAvfnRAcr2M9FbRnb3wI')
     })
-
     bot.onText(/кова|ковалева/gi, (msg, match) => {
         let stickers = [
             'CAADAgADZwAD9-dEB8fm-zJm_0EbAg', // ОООО
@@ -80,7 +75,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/гриця|грицай/gi, (msg, match) => {
         let stickers = [
             'CAADAgADLwAD9-dEB3myk_JRkBEWAg', // цп
@@ -91,7 +85,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/паша|павел|равел|павлик|пашка/gi, (msg, match) => {
         let stickers = [
             'CAADAgADcQAD9-dEB1h0NfI-pblTAg', // граф
@@ -104,7 +97,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/вэл|веталь|виталик|кельбас|кила|килла|килбо|килбитс|виталя/gi, (msg, match) => {
         let stickers = [
             'CAADAgADIwAD9-dEB4Kl3hSzlEFYAg', // стильный на фоне
@@ -116,7 +108,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/маша|мавлик/gi, (msg, match) => {
         let stickers = [
             'CAADAgADbQAD9-dEBwpDhr5r2cXzAg', // лыба
@@ -125,7 +116,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/принц|прынц/gi, (msg, match) => {
         let stickers = [
             'CAADAgADKwAD9-dEB8J7pgNdilGKAg', // модник с цыпой
@@ -137,7 +127,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/марина|палундра|полундра/gi, (msg, match) => {
         let stickers = [
             'CAADAgADOgAD9-dEB3IZ-itF-clsAg', // Черная
@@ -145,7 +134,6 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/джунь|іра/gi, (msg, match) => {
         let stickers = [
             'CAADAgAD2AADuHTtDlQosrqUcxUtAg', // matrix очки
@@ -159,12 +147,10 @@ module.exports.addStickerSpammer = function (bot) {
         ]
         bot.sendSticker(msg.chat.id, getRandomStickerID(stickers))
     })
-
     bot.onText(/ты не шаришь|ты просто не шаришь/gi, (msg, match) => {
         bot.sendSticker(msg.chat.id, 'CAADAgADHQAD9-dEB9F-3yZbZGLEAg')
     })
-    bot.onText(/бухала подсчетики|бухала подсчётики/gi, (msg, match) => {
+    bot.onText(/бухала подсчетики|бухала подсчётики|калькулятор бухала|/gi, (msg, match) => {
         bot.sendSticker(msg.chat.id, 'CAADAgADTAEAAvfnRAeDXxBWZI8TEgI')
     })
-
 }
