@@ -26,7 +26,7 @@ function decode(stringFromOreo) {
 module.exports.addOreoSpammer = function(bot) {
   // Currencies are optional, regex to support both - /rates and /rates BTC USD
   bot.onText(/\/oreo (.*)?/, async (msg, match) => {
-    const stringToOreo = match[2];
+    const stringToOreo = match[1];
 
     if (!stringToOreo) {
       bot.sendMessage(msg.chat.id, "Не могу сделать OREO из " + match);
@@ -40,7 +40,7 @@ module.exports.addOreoSpammer = function(bot) {
   });
 
   bot.onText(/\/fromOreo (.*)?/, async (msg, match) => {
-    const stringFromOreo = match[2];
+    const stringFromOreo = match[1];
 
     if (!stringFromOreo) {
       bot.sendMessage(msg.chat.id, "Не могу сделать текст из " + match);
