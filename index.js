@@ -31,8 +31,10 @@ bot.setWebHook(`${url}/bot${TELEGRAM_TOKEN}`);
 require('./spammers/stickers.js').addStickerSpammer(bot)
 require('./spammers/cryptoexchange.js').addCryptoCurrencySpammer(bot)
 require('./spammers/status.js').addStatusSpammer(bot)
-
 require('./spammers/timezone.js').addTimezoneSpammer(bot)
+
+// Oreo decoder/encoder
+require('./spammers/oreo.js').addOreoSpammer(bot)
 
 // Special kova birthday case
 //require('./spammers/birthday.js').addBirthdaySpammer(bot)
@@ -44,4 +46,4 @@ require('./spammers/timezone.js').addTimezoneSpammer(bot)
 require('./spammers/podgaldykivalo.js').addPodgaldykivaloSpammer(bot)
 
 // Sending message to myself on start, disable if to much spam
-bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
+// bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
