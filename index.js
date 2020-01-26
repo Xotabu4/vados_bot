@@ -45,5 +45,8 @@ require('./spammers/oreo.js').addOreoSpammer(bot)
 // Just some basic text responses
 require('./spammers/podgaldykivalo.js').addPodgaldykivaloSpammer(bot)
 
+// CORONA VIRUS special spammer
+require('./spammers/corona_virus.js').addCoronaVirusSpammer(bot)
+
 // Sending message to myself on start, disable if to much spam
 // bot.sendMessage(121956343, `My master, i am started at ${new Date()}`)
