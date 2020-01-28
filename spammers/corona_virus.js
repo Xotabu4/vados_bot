@@ -19,7 +19,8 @@ module.exports.addCoronaVirusSpammer = function(bot) {
             return `👑 Текущие данные по коронавирусу: 
             Страны с больными: ${totalCountries}
             Всего заболело: ${totalIll}
-            Всего умерло: ${totalDeath}`;
+            Всего умерло: ${totalDeath}
+            https://coronavirus.zone/`;
         });
     }
 
