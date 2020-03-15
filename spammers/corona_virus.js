@@ -16,10 +16,19 @@ module.exports.addCoronaVirusSpammer = function(bot) {
                 .reduce((p, c) => parseInt(p) + parseInt(c));
             let totalCountries = array.length;
 
+            let ukraine = array.find(country => country.region == 'Ukraine')
+            let ukraineIll = ukraine.cases;
+            let ukraineDeath = ukraine.death
+
             return `👑 Текущие данные по коронавирусу: 
+
+            В 🇺🇦 заболело: ${ukraineIll} 
+            В 🇺🇦 умерло: ${ukraineDeath}
+
             Страны с больными: ${totalCountries}
             Всего заболело: ${totalIll}
             Всего умерло: ${totalDeath}
+
             https://coronavirus.zone/`;
         });
     }
