@@ -3,7 +3,7 @@ module.exports.addBajajRemover = function (bot) {
     const pashaID = 238686566
 
     bot.onText(/убей байай|убей bajaj/gi, (msg, match) => {
-        if (msg.reply_to_message && msg.photo && msg.from.id === pashaID) {
+        if (msg.reply_to_message) {
             Promise.all([
                 bot.deleteMessage(msg.chat.id, msg.message_id),
                 bot.deleteMessage(msg.chat.id, msg.reply_to_message.message_id)
