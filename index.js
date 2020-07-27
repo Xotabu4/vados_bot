@@ -29,6 +29,7 @@ bot.setWebHook(`${url}/bot${TELEGRAM_TOKEN}`);
 
 //require('./spammers/schedule.js').addScheduleSpammer(bot)
 require('./spammers/stickers.js').addStickerSpammer(bot)
+require('./spammers/bajaj_remover.js').addBajajRemover(bot)
 require('./spammers/cryptoexchange.js').addCryptoCurrencySpammer(bot)
 // require('./spammers/status.js').addStatusSpammer(bot)
 // require('./spammers/timezone.js').addTimezoneSpammer(bot)
