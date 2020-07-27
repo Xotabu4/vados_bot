@@ -40,9 +40,6 @@ require('./spammers/oreo.js').addOreoSpammer(bot)
 // Special kova birthday case
 //require('./spammers/birthday.js').addBirthdaySpammer(bot)
 
-// Under construction. Consider using - https://firebase.google.com/docs/storage/web/upload-files
-//require('./spammers/photoSaver.js').addPhotoSaverSpammer(bot)
-
 // Just some basic text responses
 require('./spammers/podgaldykivalo.js').addPodgaldykivaloSpammer(bot)
 

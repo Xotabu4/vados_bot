@@ -1,13 +1,3 @@
-/**
- * Этот спаммер слушает когда упоминают кого-то и спамит в ответ стикерочком 
- * 
- * Хардкод-хардкодик!
- * 
- * 
- * Вызываешь эту функцию и передаешь параметром бота - хуки навешиваются - профит
- */
-
-
 module.exports.addStickerSpammer = function (bot) {
     function getRandomStickerID(stickers) {
         return stickers[Math.floor(Math.random() * stickers.length)];
